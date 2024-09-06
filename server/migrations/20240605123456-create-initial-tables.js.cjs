@@ -849,6 +849,14 @@ async function seedDatabase(queryInterface) {
         category_id: 'a494ac40-d362-441e-8fb8-f64460084c19',
         gender_id: 'd98a6c1c-6cde-47a1-a75d-75e188cc5e8a',
         weight_id: '691e6bf0-f7f9-4090-970a-dfdab5c39a55',
+        age_id: '701e6bf0-f7f9-4090-970a-dfdab5c39a22',
+      },
+      {
+        event_parameters_id: uuidv4(),
+        event_id: 'a494ac40-d362-441e-8fb8-f64460084c19',
+        category_id: 'a494ac40-d362-441e-8fb8-f64460084c19',
+        gender_id: 'd98a6c1c-6cde-47a1-a75d-75e188cc5e8a',
+        weight_id:'691e6bf0-f7f9-4090-970a-dfdab5c39a55',
         age_id: '691e6bf0-f7f9-4090-970a-dfdab5c39a22',
       },
       {
@@ -856,16 +864,8 @@ async function seedDatabase(queryInterface) {
         event_id: 'a494ac40-d362-441e-8fb8-f64460084c19',
         category_id: 'a594ac40-d362-441e-8fb8-f64460084c19',
         gender_id: 'd98a6c1c-6cde-47a1-a75d-75e188cc5e8a',
-        weight_id:'691e6bf0-f7f9-4090-970a-dfdab5c39a55',
-        age_id: '701e6bf0-f7f9-4090-970a-dfdab5c39a22',
-      },
-      {
-        event_parameters_id: uuidv4(),
-        event_id: 'a494ac40-d362-441e-8fb8-f64460084c19',
-        category_id: 'a594ac40-d362-441e-8fb8-f64460084c19',
-        gender_id: 'd98a6c1c-6cde-47a1-a75d-75e188cc5e8a',
         weight_id: '711e6bf0-f7f9-4090-970a-dfdab5c39a22',
-        age_id: '701e6bf0-f7f9-4090-970a-dfdab5c39a22',
+        age_id: '691e6bf0-f7f9-4090-970a-dfdab5c39a22',
       },
       {
         event_parameters_id: uuidv4(),
@@ -873,7 +873,7 @@ async function seedDatabase(queryInterface) {
         category_id: 'a594ac40-d362-441e-8fb8-f64460084c19',
         gender_id: 'aa0e22c7-8d83-41d5-a6c2-150cdbbf1b7f',
         weight_id: '691e6bf0-f7f9-4490-970a-dfdab5c39a55',
-        age_id: '701e6bf0-f7f9-4090-970a-dfdab5c39a22',
+        age_id: '691e6bf0-f7f9-4090-970a-dfdab5c39a22',
       }
     ]);
 

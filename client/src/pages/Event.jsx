@@ -6,20 +6,26 @@ import { getParametersByEvent } from '../services/api';
 export const Event = () => {
     const location = useLocation();
     const event = location.state;
+    //console.log(event)
     const navigate = useNavigate();
     
-    //get weights and categories from event
+    // Get weights and categories from event
     useEffect(() => {
         getParametersByEvent(event.event_id)
         .then(response => {
             if (Array.isArray(response.data)) {
                 const parameters = response.data.reduce((acc, item) => {
-                    // Check if the age group already exists
-                    if (!acc[item.age]) {
-                        acc[item.age] = []; // Initialize the age group array if it doesn't exist
+                    // Check if the gender group already exists
+                    if (!acc[item.gender]) {
+                        acc[item.gender] = {}; // Initialize the gender group object if it doesn't exist
+                    }
+                    // Check if the age group already exists within the gender group
+                    if (!acc[item.gender][item.age.type]) {
+                        acc[item.gender][item.age.type] = []; // Initialize the age group array if it doesn't exist
                     }
                     // Push the category and weight information into the age group array
-                    acc[item.age].push({
+                    acc[item.gender][item.age.type].push({
+                        age: { age_id: item.age.age_id, type: item.age.type, min_age: item.age.min_age, max_age: item.age.max_age },
                         category: item.category,
                         weight: item.weight,
                         gender: item.gender,

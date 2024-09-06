@@ -136,9 +136,9 @@ class EventController {
 
         eventParameters[i].dataValues.category = categoryDetails.name;
         eventParameters[i].dataValues.weight = weightDetails.value;
-        eventParameters[i].dataValues.age = ageDetails.value;
+        eventParameters[i].dataValues.age = { age_id: ageDetails.age_id, type: ageDetails.type, min_age: ageDetails.min_age, max_age: ageDetails.max_age };
         //gender return gender_id and value
-        eventParameters[i].dataValues.gender = { gender_id: genderDetails.gender_id, value: genderDetails.value };
+        eventParameters[i].dataValues.gender = genderDetails.gender_id;
         
 
         delete eventParameters[i].dataValues.category_id;
