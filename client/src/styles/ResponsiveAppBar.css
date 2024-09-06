@@ -1,0 +1,27 @@
+.navbar {
+  background-color: #000000;
+  transition: top 0.3s;
+}
+
+.navbar-hidden {
+  top: -64px; /* Adjust based on your navbar height */
+}
+
+.navbar-visible {
+  top: 0;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar-link:hover {
+  color: grey;
+  border-bottom: 1px solid white;
+}
+
+.main-content {
+  padding-top: 64px; /* Adjust based on your navbar height */
+}
