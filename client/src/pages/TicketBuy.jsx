@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Grid, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, MenuItem, Select, Button, TextField } from '@mui/material';
+import { Grid, Typography, Table, TableBody, Alert, Snackbar, TableCell, TableContainer, TableHead, TableRow, MenuItem, Select, Button, TextField } from '@mui/material';
 import { CircularProgress } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -56,7 +56,9 @@ export const Tickets = () => {
   const event = location.state;
   const navigate = useNavigate();
 
-  console.log(event)
+  // Add a new state variable for the alert
+  const [open, setOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   // Replace these with your actual data
   const [tickets, setTickets] = useState([]);
@@ -122,6 +124,15 @@ export const Tickets = () => {
     
   }
 
+  
+  const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+      setOpen(false);
+  };
+
+
   const handlePay = async () => {
     setLoading(true);
     // check if almost one tickt is selected
@@ -151,33 +162,28 @@ export const Tickets = () => {
       })
       .then(response => {
         console.log('Ticket created:', response.data);
-      })
-      .catch(error => {
-        console.error('Error creating ticket:', error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+        const objectPreference = {
+          title: 'Tickets',
+          quantity: 1,
+          unit_price: totalCost,
+          order_id
+        }
+        return postCreatePreference(objectPreference)
+        })
+        .then(response => {
+          console.log('Preference created:', response.data);
+          setPreferenceId(response.data.id);
+        })
+        .catch(error => {
+          const errorMessage = error.response?.data?.error || 'An error occurred';
+          setAlertMessage(errorMessage);
+          setOpen(true);
+          console.log(error);
+        })
+        .finally(() => {
+            setLoading(false);
+        });
     });
-
-  
-    const objectPreference = {
-      title: 'Tickets',
-      quantity: 1,
-      unit_price: totalCost,
-      order_id
-    }
-    postCreatePreference(objectPreference)
-    .then(response => {
-      console.log('Preference created:', response.data);
-      setPreferenceId(response.data.id);
-    })
-    .catch(error => {
-      console.error('Error creating preference:', error);
-    });
-
-
-  
 
     //navigate("/cart",  { state: { event: event, tickets: tickets } });
   };
@@ -247,6 +253,11 @@ export const Tickets = () => {
         Back
       </Button>
       </Grid>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+              {alertMessage}
+          </Alert>
+      </Snackbar>
     </Grid>
   </Grid>
 </Grid>

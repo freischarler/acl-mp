@@ -12,7 +12,6 @@ import genderService from '../services/genderService.js';
 class RegistrationController {
   async createRegistration(req, res, next) {
     try {
-
       const { user_id, event_id } = req.body;
 
       // Check for existing registration
@@ -26,14 +25,14 @@ class RegistrationController {
       const age_id = await ageService.getAgeByType(req.body.age);
       const category_id = await categoryService.getCategoryByName(req.body.category);
       const gender_id = await userService.getUserGender(user_id);
-
+ 
       // add weight_id, age_id, style_id to registration body
       req.body.weight_id = weight_id.weight_id;
       req.body.age_id = age_id.age_id;
       req.body.category_id = category_id.category_id;
       req.body.gender_id = gender_id.gender_id;
 
-      if (!weight_id || !age_id || !category || !gender_id) {
+      if (!weight_id || !age_id || !category_id || !gender_id) {
         return res.status(400).json({ error: 'Invalid params' });
       }
 

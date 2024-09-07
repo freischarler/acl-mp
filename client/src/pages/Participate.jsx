@@ -23,6 +23,7 @@ export const Participate = () => {
     // Add a new state variable for the alert
     const [open, setOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+
     const [price, setPrice] = useState(0);
 
     useEffect(() => {
@@ -97,7 +98,6 @@ export const Participate = () => {
         if (reason === 'clickaway') {
             return;
         }
-
         setOpen(false);
     };
 
@@ -106,6 +106,7 @@ export const Participate = () => {
         if (!selectedWeight || !selectedCategory) {
             setAlertMessage('Please select an age, weight and category.');
             setOpen(true);
+            setLoading(false);
             return;
         }
 
@@ -113,7 +114,7 @@ export const Participate = () => {
         const ageV = (new Date().getFullYear() - birthDate.getFullYear()) >= 18 ? 'Senior' : 'Kids';
 
         const order_id = uuidv4();
-
+        
         const item = {
             user_id: user.user_id,
             event_id: event.event_id,
@@ -125,7 +126,6 @@ export const Participate = () => {
             price: price,
             order_id
         }
-        console.log(item)
         postRegistration(item)
             .then(response => {
                 console.log(response.data);
@@ -146,7 +146,6 @@ export const Participate = () => {
                 setAlertMessage(errorMessage);
                 setOpen(true);
                 console.log(error);
-                setLoading(false);
             })
             .finally(() => {
                 setLoading(false);
