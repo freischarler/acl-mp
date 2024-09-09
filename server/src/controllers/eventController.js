@@ -14,7 +14,7 @@ class EventController {
       const event = await eventService.createEvent(req.body);
       res.status(201).json(event);
     } catch (error) {
-      //console.log(error)
+      console.log(error)
       next(error);
     }
   }
@@ -37,7 +37,7 @@ class EventController {
         const eventPrice = await eventPriceService.getEventPriceByEventId(events[i].event_id);
         //console.log(eventPrice);
         // Check if eventPrice and eventPrice.dataValues exist before accessing price
-        if (eventPrice) {
+        if (eventPrice && eventPrice[0] && eventPrice[0].dataValues) {
           events[i].dataValues.price = eventPrice[0].dataValues.price;
         } else {
           // Handle the case where eventPrice or eventPrice.dataValues is undefined

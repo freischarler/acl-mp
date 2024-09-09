@@ -7,7 +7,7 @@ class StyleService {
     }
 
     async getAllStyles() {
-        return await Style.find();
+        return await Style.findAll();
     }
 
     async getStyleById(styleId) {

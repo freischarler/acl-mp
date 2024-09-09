@@ -50,6 +50,10 @@ export const getUserById = (id) => {
   return axios.get(`${API_URL}/users/${id}`)
 }
 
+export const getStyles = () => {
+  return axios.get(`${API_URL}/styles`)
+}
+
 export const getEventsTicketsRegistrationsByUserId = (userId) => {
   return axios.get(`${API_URL}/events/user/${userId}/my-events`)
 }
@@ -89,4 +93,8 @@ export const postCreateEventParameters = (eventParameter) => {
 
 export const getEventParameters = () => {
   return axios.get(`${API_URL}/eventParameters/parameters`)
+}
+
+export const updateEvent = (eventId, event) => {
+  return axios.put(`${API_URL}/events/${eventId}`, event)
 }

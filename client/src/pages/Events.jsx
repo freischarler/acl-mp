@@ -14,17 +14,14 @@ export const Events = () => {
           // Actualizar el estado con los datos obtenidos
           console.log(response.data)
   
-          /*onst vigentEvents = response.data.filter(event => {
-            const eventDate = new Date(event.end_date);
-            return eventDate >= new Date();
-          });*/
-  
-          setData(response.data);
+          // Filter events to only include those with status "active"
+          const activeEvents = response.data.filter(event => event.status === 'active');
+          setData(activeEvents);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-    }, []);
+  }, []);
 
   return (
     <Container sx={{ marginTop: 5 }}>

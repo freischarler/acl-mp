@@ -6,10 +6,11 @@ import { CreateEventParameters } from '../components/CreateEventParameters';
 import { CreateWeight } from '../components/CreateWeight';
 import { CreateAge } from '../components/CreateAge';
 import { CreateCategory } from '../components/CreateCategory';
+import { EditEvents } from '../components/EditEvent';
 
 export const ManageEvent = () => {
       return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" >
           <CreateTeam />
           <CreateEvent />
           <CreateTicket />
@@ -19,6 +20,7 @@ export const ManageEvent = () => {
           <CreateAge />
           <CreateCategory />
 
+          <EditEvents />
         </Container>
       );
     }

@@ -55,7 +55,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api/qrs', qrsRoutes);
 app.use('/api/mp', mpRoutes);
-app.use('/api/style', styleRoutes);
+app.use('/api/styles', styleRoutes);
 
 app.use('/api/events', eventRoutes);
 app.use('/api/eventPrice', eventPriceRoutes);
