@@ -61,7 +61,7 @@ router.post('/create_registration_preference', async (req, res) => {
                 pending: process.env.FRONTEND_URL + 'my-events',
             },
             auto_return: 'approved',
-            notification_url: 'https://2bd9-152-168-148-145.ngrok-free.app/api/mp/webhook',
+            notification_url: process.env.NOTIFICATION + '/api/mp/webhook',
             external_reference: req.body.order_id,
         };
 

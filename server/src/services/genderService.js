@@ -3,7 +3,7 @@ import  ApiError from '../utils/ApiError.js';
 
 class GenderService {
     async getAllGenders() {
-        return await Gender.find();
+        return await Gender.findAll();
     }
 
     async getGenderById(genderId) {

@@ -7,7 +7,7 @@ class AgeService {
     }
 
     async getAllAges() {
-        return await Age.find();
+        return await Age.findAll();
     }
 
     async getAgeById(ageId) {

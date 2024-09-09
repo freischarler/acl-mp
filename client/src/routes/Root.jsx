@@ -17,6 +17,8 @@ import { MyEvents } from "../pages/MyEvents";
 import { RegisteredAthletes } from "../pages/RegisteredAthletes";
 
 import '../styles/Root.css';
+import { ManageTeam } from "../pages/ManageTeam";
+import { ManageEvent } from "../pages/ManageEvent";
 
 function Root() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -63,6 +65,10 @@ function Root() {
           <Route exact path="ticket-purchased" element={<TicketPurchased />} />
           <Route exact path="ticket-failed" element={<TicketFailed />} />
           <Route exact path="ticket-pending" element={<TicketPending />} />
+
+          <Route exact path="manage-event" element={<ManageEvent />} />
+          <Route exact path="manage-team" element={<ManageTeam />} />
+
          
         </Routes>
         </div>

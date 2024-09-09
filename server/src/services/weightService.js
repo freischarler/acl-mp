@@ -7,7 +7,7 @@ class WeightService {
     }
 
     async getAllWeights() {
-        return await Weight.find();
+        return await Weight.findAll();
     }
 
     async getWeightById(weightId) {

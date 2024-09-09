@@ -10,7 +10,10 @@ import userRoutes from './routes/userRoutes.js';
 import loginRoutes from './routes/loginRoutes.js';
 import qrsRoutes from './routes/qrsRoutes.js';
 import styleRoutes from './routes/styleRoutes.js';
-import genderRoutes from './routes/genderRoutes.js';
+import ageRoutes from './routes/ageRoutes.js';
+import weightRoutes from './routes/weightRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
+
 import eventParametersRoutes from './routes/eventParametersRoutes.js';
 import registrationRoutes from './routes/registrationRoutes.js';
 
@@ -45,8 +48,9 @@ connectDB();
 
 // Set up routes
 app.use('/api/users', userRoutes);
-app.use('/api/gender', genderRoutes);
-
+app.use('/api/ages', ageRoutes);
+app.use('/api/weights', weightRoutes)
+app.use('/api/categories', categoryRoutes);
 
 app.use('/api/login', loginRoutes);
 app.use('/api/qrs', qrsRoutes);

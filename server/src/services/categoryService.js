@@ -3,7 +3,7 @@ import  ApiError from '../utils/ApiError.js';
 
 class CategoryService {
   async getAllCategories() {
-    return await Categories.find();
+    return await Categories.findAll();
   }
 
   async getCategoryById(categoryId) {
@@ -20,6 +20,10 @@ class CategoryService {
       throw new ApiError(404, 'Category not found');
     }
     return category;
+  }
+
+  async createCategory(category) {
+    return await Categories.create(category);
   }
 }
 

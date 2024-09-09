@@ -57,3 +57,36 @@ export const getEventsTicketsRegistrationsByUserId = (userId) => {
 export const getRegisteredAthletesByEvent = (eventId) => {
   return axios.get(`${API_URL}/registration/event/${eventId}`)
 }
+
+export const postCreateTicket = (ticket) => {
+  return axios.post(`${API_URL}/eventPrice`, ticket)
+}
+
+export const postCreateEvent = (event) => {
+  return axios.post(`${API_URL}/events`, event)
+}
+
+export const postCreateTeam = (team) => {
+  return axios.post(`${API_URL}/teams`, team)
+}
+
+export const postCreateAge = (age) => {
+  return axios.post(`${API_URL}/ages`, age)
+}
+
+export const postCreateWeight = (weight) => {
+  return axios.post(`${API_URL}/weights`, weight)
+}
+
+export const postCreateCategory = (category) => {
+  return axios.post(`${API_URL}/categories`, category)
+}
+
+
+export const postCreateEventParameters = (eventParameter) => {
+  return axios.post(`${API_URL}/eventParameters`, eventParameter)
+}
+
+export const getEventParameters = () => {
+  return axios.get(`${API_URL}/eventParameters/parameters`)
+}
